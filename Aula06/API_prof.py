@@ -33,25 +33,26 @@ with open('./Aula06/writing.txt', "r") as file_object:
     print(cidade[7])
     print(cidade[10])
     print(cidade[13])
-city = []
-city.append(cidade[1])
-city.append(cidade[4])
-city.append(cidade[7])
-city.append(cidade[10])
-city.append(cidade[13])
+city1 = []
+city1.append(cidade[1])
+city1.append(cidade[4])
+city1.append(cidade[7])
+city1.append(cidade[10])
+city1.append(cidade[13])
 for i in range(0,5):
-    print(city[i])
+    print(city1[i])
 
-for i in range(len(city)):
-    link = f"https://api.openweathermap.org/data/2.5/weather?q={city[i]}&appid={API_KEY}&lang=pt_br&units=metric"
+for i in range(len(city1)):
+    link = f"https://api.openweathermap.org/data/2.5/weather?q={city1[i]}&appid={API_KEY}&lang=pt_br&units=metric"
 
     resposta   = requests.request("GET", link)
     objeto   = json.loads(resposta.text)
+    #print(objeto)
     pais = objeto["sys"]["country"] 
-    city = objeto["name"] 
+    cidade = objeto["name"] 
     long = objeto["coord"] ["lon"]
     lat = objeto["coord"] ["lat"]
-    print(f" {pais}, {city}, {long}, {lat}")
+    print(f" {pais}, {cidade}, {long}, {lat}")
     
 #     file_name = './Aula06/writing.txt'
 #     with open(file_name, 'a') as file_object:
