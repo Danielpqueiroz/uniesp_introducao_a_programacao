@@ -20,17 +20,38 @@ for i in range(len(LAT)):
     with open(file_name, 'a') as file_object:
         file_object.write(f"{pais} , {city}, {long}, {lat}\n")
 
-# for i in range(len(LAT)):
 
-#     link = f"https://api.openweathermap.org/data/2.5/weather?q={cidade[i]}&appid={API_KEY}&lang=pt_br&units=metric"
+with open('./Aula06/writing.txt', "r") as file_object:
+    # arquivo_csv = csv.reader(file_object, delimiter=',')
+    # cidade = file_object.readlines() 
+# for cidade in cidade:
+#     print(cidade[1])
+    txt = file_object.read()
+    cidade = list(map(str, txt.split(",")))
+    print(cidade[1])
+    print(cidade[4])
+    print(cidade[7])
+    print(cidade[10])
+    print(cidade[13])
+city = []
+city.append(cidade[1])
+city.append(cidade[4])
+city.append(cidade[7])
+city.append(cidade[10])
+city.append(cidade[13])
+for i in range(0,5):
+    print(city[i])
 
-#     resposta   = requests.request("GET", link)
-#     objetos    = json.loads(resposta.text)
-#     pais = objetos["sys"]["country"] 
-#     city = objetos["name"] 
-#     long = objetos["coord"] ["lon"]
-#     lat = objetos["coord"] ["lat"]
-#     print(f" {pais}, {city}, {long}, {lat}")
+for i in range(len(city)):
+    link = f"https://api.openweathermap.org/data/2.5/weather?q={city[i]}&appid={API_KEY}&lang=pt_br&units=metric"
+
+    resposta   = requests.request("GET", link)
+    objeto   = json.loads(resposta.text)
+    pais = objeto["sys"]["country"] 
+    city = objeto["name"] 
+    long = objeto["coord"] ["lon"]
+    lat = objeto["coord"] ["lat"]
+    print(f" {pais}, {city}, {long}, {lat}")
     
 #     file_name = './Aula06/writing.txt'
 #     with open(file_name, 'a') as file_object:
@@ -41,9 +62,5 @@ for i in range(len(LAT)):
 #     print(f"{i} :: {objetos[i]}")
 
 
-with open('./Aula06/writing.txt', "r") as file_object:
-    #arquivo_csv = csv.reader(file_object, delimiter=",")
-    cidade = file_object.readlines() 
-for cidade in cidade:
-    print(cidade.rstrip())
+
     
