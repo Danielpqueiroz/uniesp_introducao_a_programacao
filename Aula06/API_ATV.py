@@ -22,10 +22,7 @@ for i in range(len(LAT)):
 
 
 with open('./Aula06/writing.txt', "r") as file_object:
-    # arquivo_csv = csv.reader(file_object, delimiter=',')
-    # cidade = file_object.readlines() 
-# for cidade in cidade:
-#     print(cidade[1])
+
     txt = file_object.read()
     cidade = list(map(str, txt.split(",")))
     print(cidade[1])
@@ -54,13 +51,7 @@ for i in range(len(city1)):
     lat = objeto["coord"] ["lat"]
     print(f" {pais}, {cidade}, {long}, {lat}")
     
-#     file_name = './Aula06/writing.txt'
-#     with open(file_name, 'a') as file_object:
-#         file_object.write(f"{pais} , {city}, {long}, {lat}\n")     
-# dados      = objetos['dados']
 
-# for i in objetos:
-#     print(f"{i} :: {objetos[i]}")
 
 
 
