@@ -1,3 +1,4 @@
+#Alunos: Antonio fragoso, Daniel pontes, Thallysson costa, Willames pereira. 
 import requests
 import json
 import csv
